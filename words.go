@@ -1,6 +1,7 @@
 package profiling_demo
 
 import (
+	"bufio"
 	"io"
 	"unicode"
 )
@@ -8,6 +9,7 @@ import (
 func words(r io.Reader) (int, error) {
 	words := 0
 	inword := false
+	r = bufio.NewReader(r)
 	for {
 		r, err := readbyte(r)
 		if err == io.EOF {
